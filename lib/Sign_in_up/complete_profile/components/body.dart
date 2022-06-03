@@ -2,6 +2,7 @@ import 'package:e_auction/Sign_in_up/complete_profile/components/profile_pic.dar
 import 'package:flutter/material.dart';
 import '../../../constants/constant.dart';
 import '../../../constants/size_config.dart';
+import '../../../firstscreen/profile/components/terms_conditional.dart';
 import 'complete_profile_form.dart';
 
 class Body extends StatelessWidget {
@@ -27,10 +28,17 @@ class Body extends StatelessWidget {
                 SizedBox(height: SizeConfig.screenHeight * 0.03),
                 CompleteProfileForm(),
                 SizedBox(height: getProportionateScreenHeight(30)),
-                Text(
-                  "By continuing your confirm that you agree \nwith our Term and Condition",
-                  textAlign: TextAlign.center,
-                  style: Theme.of(context).textTheme.caption,
+                TextButton(
+                  child: Text("By continuing your confirm that you agree \nwith our Term and Condition",textAlign: TextAlign.center,
+                    style: Theme.of(context).textTheme.caption,),
+                  onPressed: (){
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => TermsAndConditional(),
+                      ),
+                    );
+                  },
                 ),
               ],
             ),

@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:e_auction/constants/default_button.dart';
 import 'package:e_auction/firstscreen/profile/components/id_pic.dart';
+import 'package:e_auction/firstscreen/profile/profile_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -236,6 +237,9 @@ class _RequestToSellState extends State<RequestToSell> {
                       "description":description,
 
                       });
+                      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context){
+                        return ProfileScreen();
+                      } ),);
                     }
                   },
                 ),

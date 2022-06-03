@@ -3,16 +3,21 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import '../../../../constants/size_config.dart';
 
-class Categories extends StatelessWidget {
+class Categories extends StatefulWidget {
 
+  @override
+  State<Categories> createState() => _CategoriesState();
+}
+
+class _CategoriesState extends State<Categories> {
   @override
   Widget build(BuildContext context) {
     List<Map<String, dynamic>> categories = [
-      {"icon": "assets/icons/Flash Icon.svg", "text": "Cars","id":1},
-      {"icon": "assets/icons/Bill Icon.svg", "text": "Estates","id":2},
-      {"icon": "assets/icons/Game Icon.svg", "text": "Coins","id":3},
-      {"icon": "assets/icons/Gift Icon.svg", "text": "Plates","id":4},
-      {"icon": "assets/icons/Discover.svg", "text": "Other","id":5},
+      {"icon": "assets/category/cars.png", "text": "Cars","id":1},
+      {"icon": "assets/category/estate.png", "text": "Estates","id":2},
+      {"icon": "assets/category/coins80.png", "text": "Coins","id":3},
+      {"icon": "assets/category/plate100.png", "text": "Plates","id":4},
+      {"icon": "assets/category/other.png", "text": "Other","id":5},
     ];
     return Padding(
       padding: EdgeInsets.all(getProportionateScreenWidth(20)),
@@ -60,17 +65,17 @@ class CategoryCard extends StatelessWidget {
         child: Column(
           children: [
             Container(
-              padding: EdgeInsets.all(getProportionateScreenWidth(15)),
+              padding: EdgeInsets.all(getProportionateScreenWidth(8)),
               height: getProportionateScreenWidth(55),
               width: getProportionateScreenWidth(55),
               decoration: BoxDecoration(
-                color: Color(0xFFDFE8FF),
+                color: Color(0xFFFFFFFF),
                 borderRadius: BorderRadius.circular(10),
               ),
-              child: SvgPicture.asset(icon),
+              child: Image(image: AssetImage(icon)),
             ),
             SizedBox(height: 5),
-            Text(text, textAlign: TextAlign.center)
+            Text(text, textAlign: TextAlign.center,style: TextStyle(fontWeight: FontWeight.bold),)
           ],
         ),
       ),

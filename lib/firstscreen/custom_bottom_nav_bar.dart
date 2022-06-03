@@ -1,7 +1,9 @@
 import 'package:e_auction/firstscreen/home/components/WishList/WishList_page.dart';
 import 'package:e_auction/firstscreen/profile/profile_screen.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:kommunicate_flutter/kommunicate_flutter.dart';
 import '../constants/constant.dart';
 import 'home/home_screen.dart';
 
@@ -72,6 +74,26 @@ class _CustomBottomNavBarState extends State<CustomBottomNavBar> {
               IconButton(
                 icon: SvgPicture.asset("assets/icons/Chat bubble Icon.svg"),
                 onPressed: () {
+                  try{
+                    dynamic user = {
+                      'userId' : FirebaseAuth.instance.currentUser.uid,   //Replace it with the userId of the logged in user
+                    };
+                    dynamic conversationObject = {
+                      'appId': '163901d93f0cf99bf278b4b5ddd767856',// The [APP_ID](https://dashboard.kommunicate.io/settings/install) obtained from kommunicate dashboard.
+                    };
+
+                    KommunicateFlutterPlugin.buildConversation(conversationObject)
+                        .then((clientConversationId) {
+                      print("Conversation builder success : " + clientConversationId.toString());
+                    }).catchError((error) {
+                      print("Conversation builder error : " + error.toString());
+                    });
+
+
+
+                  } on Exception catch(e){
+                    print("Converstaion builder error occured :" + e.toString());
+                  }
 
                 },
               ),

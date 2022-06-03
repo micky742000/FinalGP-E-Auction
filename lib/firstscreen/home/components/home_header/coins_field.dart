@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:e_auction/firstscreen/home/components/home_header/coins_payment/payment_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -29,10 +30,17 @@ class _CoinsFieldState extends State<CoinsField> {
             return TextButton.icon(
                 onPressed: () {
                   setState(() {
-                     setFromUID(snapshot.data * 5);
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) {
+                        return makePayment();
+                      }),
+                    );
+
+                    // setFromUID(snapshot.data * 5);
                   });
                 },
-                icon: SvgPicture.asset("assets/icons/Bell.svg"),
+                icon: Image.asset('assets/category/syscoins.png',) ,
                 label: Text("${snapshot.data}"));
           } else
             return Text("0");

@@ -28,6 +28,23 @@ final headingStyle2 = TextStyle(
   color: Colors.black,
   height: 1.5,
 );
+final headingStyle3 = TextStyle(
+  fontSize: getProportionateScreenWidth(20),
+  fontWeight: FontWeight.bold,
+  color: Colors.black,
+  height: 1.5,
+);
+final headingStyle4 = TextStyle(
+  fontSize: getProportionateScreenWidth(18),
+  fontWeight: FontWeight.bold,
+  color: Colors.black,
+  height: 1.5,
+);
+
+final textStyle1 = TextStyle(
+  fontSize: getProportionateScreenWidth(18),
+  color: Colors.black,
+);
 
 const defaultDuration = Duration(milliseconds: 250);
 
